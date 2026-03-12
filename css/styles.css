@@ -21,38 +21,38 @@ DO NOT use CSS frameworks (Bootstrap, Tailwind, etc.)
    ============================================================ */
 :root {
     /* Colors - TODO: Customize your color palette */
-    --color-primary: /* Your primary color */;
-    --color-primary-dark: /* Darker shade */;
-    --color-secondary: /* Secondary color */;
-    --color-text: /* Main text color */;
-    --color-text-light: /* Lighter text */;
-    --color-background: /* Page background */;
-    --color-background-alt: /* Alternate background */;
-    --color-border: /* Border color */;
+    --color-primary: /* Your primary color */#ec4899;
+    --color-primary-dark: /* Darker shade */#db2777;
+    --color-secondary: /* Secondary color */#a78bfa;
+    --color-text: /* Main text color */#1f2937;
+    --color-text-light: /* Lighter text */#6b7280;
+    --color-background: /* Page background */#fff0f6;
+    --color-background-alt: /* Alternate background */#fce7f3;
+    --color-border: /* Border color */#fbcfe8;
 
     /* Typography - TODO: Define your font sizes */
-    --font-family: /* Your font stack */;
-    --font-size-base: /* Base size, e.g., 16px */;
-    --font-size-sm: /* Small text */;
-    --font-size-lg: /* Large text */;
-    --font-size-xl: /* Extra large */;
-    --font-size-2xl: /* Headings */;
-    --font-size-3xl: /* Large headings */;
+    --font-family: /* Your font stack */Arial, Helvetica, sans-serif;
+    --font-size-base: /* Base size, e.g., 16px */16px;
+    --font-size-sm: /* Small text */14px;
+    --font-size-lg: /* Large text */18px;
+    --font-size-xl: /* Extra large */24px;
+    --font-size-2xl: /* Headings */32px;
+    --font-size-3xl: /* Large headings */40px;
 
     /* Spacing - TODO: Define spacing scale */
-    --spacing-xs: /* Extra small */;
-    --spacing-sm: /* Small */;
-    --spacing-md: /* Medium */;
-    --spacing-lg: /* Large */;
-    --spacing-xl: /* Extra large */;
+    --spacing-xs: /* Extra small */4px;
+    --spacing-sm: /* Small */8px;
+    --spacing-md: /* Medium */16px;
+    --spacing-lg: /* Large */32px;
+    --spacing-xl: /* Extra large */64px;
 
     /* Layout */
-    --max-width: /* Container max-width */;
-    --border-radius: /* Default border radius */;
+    --max-width: /* Container max-width */1100px;
+    --border-radius: /* Default border radius */6px;
 
     /* Transitions */
-    --transition-fast: /* Fast transition */;
-    --transition-normal: /* Normal transition */;
+    --transition-fast: /* Fast transition */0.2s ease;
+    --transition-normal: /* Normal transition */0.3s ease;
 }
 
 /* ============================================================
@@ -63,30 +63,46 @@ DO NOT use CSS frameworks (Bootstrap, Tailwind, etc.)
 *::before,
 *::after {
     /* TODO: box-sizing, margin, padding reset */
+    box-sizing: border-box;
+    margin:0 ;
+    padding : 0;
 }
 
 html {
     /* TODO: scroll-behavior, font-size */
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
     /* TODO: font-family, color, background-color, line-height */
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: #fff;
+    line-height: 1.6;
 }
 
 img {
     /* TODO: Make images responsive */
+    max-width: 100%;
+    display: block;
+
 }
 
 a {
     /* TODO: Link styles */
+    text-decoration: none;
+    color: var(--color-primary);
 }
 
 a:hover {
     /* TODO: Link hover state */
+    color: black;
 }
 
 ul {
     /* TODO: List reset */
+    list-style: none;
 }
 
 /* ============================================================
@@ -100,6 +116,10 @@ ul {
      * - margin: 0 auto
      * - padding
      */
+     width: 100%;
+     max-width: var(--max-width);
+     margin: 0 auto;
+     padding: var(--spacing-md);
 }
 
 /* ============================================================
@@ -114,26 +134,48 @@ ul {
      * - text-align, cursor
      * - transition
      */
+     display: flex;
+     padding:var(--spacing-md) ;
+     border-radius: var(--border-radius);
+     font-size: var(--font-size-sm);
+     font-weight: bold;
+     text-align: center;
+     cursor: pointer;
+     transition: var(--transition-fast);
 }
 
 .btn--primary {
     /* TODO: Primary button (filled) */
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+
 }
 
 .btn--primary:hover {
     /* TODO: Primary button hover */
+    background: var(--color-primary-dark);
+
 }
 
 .btn--outline {
     /* TODO: Outline button (bordered) */
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
 }
 
 .btn--outline:hover {
     /* TODO: Outline button hover */
+    background:var(--color-primary);
+    color:white;
 }
 
 .btn--small {
     /* TODO: Small button variant */
+     padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+
 }
 
 /* ============================================================
@@ -147,6 +189,12 @@ ul {
 .header {
     /* TODO: Style the header
        Consider: position, background, padding, box-shadow, z-index */
+    position: sticky;
+    top:0;
+    background:white;
+    padding: var(--spacing-md) 0;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    z-index:100;
 }
 
 .nav {
@@ -155,24 +203,36 @@ ul {
      * - justify-content: space-between
      * - align-items: center
      */
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .nav__logo a {
     /* TODO: Logo styles */
+    font-size: var(--font-size-xl);
+    font-weight:bold;
+    color:var(--color-primary);
 }
 
 .nav__menu {
     /* TODO: Style navigation menu
        Mobile: Stack vertically or hide
        Desktop: Horizontal with Flexbox */
+    display:flex;
+    gap: var(--spacing-md);
+
 }
 
 .nav__menu a {
     /* TODO: Navigation link styles */
+    font-size: var(--font-size-base);
+    color: var(--color-text);
 }
 
 .nav__menu a:hover {
     /* TODO: Navigation link hover */
+    color: var(--color-primary);
 }
 
 /* ============================================================
@@ -183,14 +243,27 @@ ul {
     /* TODO: Style hero section
        Consider: min-height, background, centering content
        Use Flexbox for centering */
+     min-height:70vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:var(--color-background-alt);
+
 }
 
 .hero__content h1 {
     /* TODO: Style your name */
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
+    
 }
+    
 
 .hero__tagline {
     /* TODO: Style tagline */
+    font-size: var(--font-size-lg);
+    color: var(--color-text-light);
 }
 
 /* ============================================================
@@ -199,37 +272,59 @@ ul {
    ============================================================ */
 .about {
     /* TODO: Section padding */
+    padding: var(--spacing-xl) 0;
 }
 
 .about h2 {
     /* TODO: Section heading */
+    text-align:center;
+    margin-bottom: var(--spacing-lg);
 }
 
 .about__content {
     /* TODO: Use CSS Grid or Flexbox for layout
        Mobile: Stack image above text
        Desktop: Side by side */
+    display:grid;
+    grid-template-columns:1fr;
+    gap: var(--spacing-lg);
+
 }
 
 .about__image img {
     /* TODO: Style profile image */
+    border-radius:50%;
+    max-width:250px;
+    margin:auto;
+
 }
 
 .about__text p {
     /* TODO: Paragraph styles */
+    margin-bottom: var(--spacing-md);
 }
 
 .about__text h3 {
     /* TODO: Subheading styles */
+    margin-top: var(--spacing-md);
 }
 
 .skills-list {
     /* TODO: Style skills list
        Consider: Flexbox, tags/badges style */
+    display:flex;
+    flex-wrap:wrap;
+    gap: var(--spacing-sm);
+
 }
 
 .skills-list li {
     /* TODO: Individual skill badge */
+    background:var(--color-primary);
+    color:white;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size: var(--font-size-sm);
 }
 
 /* ============================================================
@@ -238,10 +333,13 @@ ul {
    ============================================================ */
 .projects {
     /* TODO: Section styling */
+    padding: var(--spacing-xl) 0;
 }
 
 .projects h2 {
     /* TODO: Section heading */
+    text-align:center;
+    margin-bottom: var(--spacing-lg);
 }
 
 .projects__grid {
@@ -249,6 +347,10 @@ ul {
        Mobile: 1 column
        Tablet: 2 columns
        Desktop: 3 columns */
+    display:grid;
+    grid-template-columns:1fr;
+    gap: var(--spacing-lg);
+
 }
 
 .project-card {
@@ -256,30 +358,45 @@ ul {
      * - background, border-radius, overflow
      * - box-shadow, transition
      */
+    background:white;
+    border-radius: var(--border-radius);
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    transition: var(--transition-normal);
 }
 
 .project-card:hover {
     /* TODO: Card hover effect */
+    transform: translateY(-5px);
 }
 
 .project-card img {
     /* TODO: Project image */
+    padding: var(--spacing-md);
+
 }
 
 .project-card__content {
     /* TODO: Card content area */
+    padding: var(--spacing-md);
 }
 
 .project-card__content h3 {
     /* TODO: Project title */
+    margin-bottom: var(--spacing-sm);
 }
 
 .project-card__content p {
     /* TODO: Project description */
+    color: var(--color-text-light);
 }
+
 
 .project-card__links {
     /* TODO: Links container (Flexbox) */
+    display:flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
 }
 
 /* ============================================================
@@ -288,23 +405,33 @@ ul {
    ============================================================ */
 .contact {
     /* TODO: Section styling */
+     padding: var(--spacing-xl) 0;
 }
 
 .contact h2 {
     /* TODO: Section heading */
+    text-align:center;
+    margin-bottom: var(--spacing-lg);
+
 }
 
 .contact__form {
     /* TODO: Style contact form
        Consider: max-width, centering */
+    max-width:600px;
+    margin:auto;
 }
 
 .form-group {
     /* TODO: Form group spacing */
+    margin-bottom: var(--spacing-md);
+
 }
 
 .form-group label {
     /* TODO: Label styles */
+     display:block;
+    margin-bottom:4px;
 }
 
 .form-group input,
@@ -315,15 +442,23 @@ ul {
      * - font-family, font-size
      * - transition
      */
+     width:100%;
+    padding: var(--spacing-sm);
+    border:1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     /* TODO: Focus state */
+    outline:none;
+    border-color: var(--color-primary);
 }
 
 .form-group textarea {
     /* TODO: Textarea specific styles */
+    min-height:120px;
 }
 
 /* ============================================================
@@ -335,23 +470,37 @@ ul {
      * - background, color, padding
      * - text-align
      */
+     background:#111;
+    color:white;
+    padding: var(--spacing-md) 0;
+    text-align:center;
 }
 
 .footer .container {
     /* TODO: Footer layout (Flexbox) */
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: var(--spacing-sm);
 }
 
 .footer__social {
     /* TODO: Social links container */
+    display:flex;
+    gap: var(--spacing-md);
 }
 
 .footer__social a {
     /* TODO: Social link styles */
+    color: white;
 }
 
 .footer__social a:hover {
     /* TODO: Social link hover */
+    color: var(--color-secondary);
 }
+
+
 
 /* ============================================================
    RESPONSIVE BREAKPOINTS
@@ -367,19 +516,41 @@ ul {
        - Adjust typography sizes
        - Change layouts (Grid columns, Flexbox directions)
        - Adjust spacing */
-}
+    .hero__content h1{
+    font-size:48px;
 
+}
+.about__content{
+    grid-template-columns:1fr 2fr;
+}
+.projects__grid{
+    grid-template-columns:repeat(2,1fr);
+}
+}
 /* Desktop (1024px and up) */
 @media (min-width: 1024px) {
     /* TODO: Add desktop styles
        - Further layout adjustments
        - Larger typography
        - More spacing */
+    .projects__grid{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.hero{
+    min-height:80vh;
+}
+
+        
 }
 
 /* Large Desktop (1200px and up) */
 @media (min-width: 1200px) {
     /* TODO: Add large desktop styles (optional) */
+    
+.container{
+    max-width:1200px;
+}
 }
 
 /* ============================================================
